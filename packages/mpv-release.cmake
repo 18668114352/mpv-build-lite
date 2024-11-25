@@ -15,7 +15,6 @@ execute_process(COMMAND ${PREFIX_DIR}/src/get_latest_tag.sh
 
 ExternalProject_Add(mpv-release
     DEPENDS
-        angle-headers
         ffmpeg
         fribidi
         lcms2
@@ -29,8 +28,6 @@ ExternalProject_Add(mpv-release
         mujs
         vulkan
         shaderc
-        libplacebo
-        spirv-cross
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
