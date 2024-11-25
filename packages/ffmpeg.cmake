@@ -20,7 +20,6 @@ ExternalProject_Add(ffmpeg
         harfbuzz
         opus
         speex
-        x264
         libxml2
         libvpl
         shaderc
@@ -61,7 +60,6 @@ ExternalProject_Add(ffmpeg
         --enable-libspeex
         --enable-libbs2b
         --enable-librubberband
-        --enable-libx264
         --enable-libdav1d
         --enable-libzimg
         --disable-mbedtls
