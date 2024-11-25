@@ -1,15 +1,12 @@
 ExternalProject_Add(ffmpeg
     DEPENDS
         amf-headers
-        avisynth-headers
         ${nvcodec_headers}
         bzip2
         gmp
         lame
         libass
         libbluray
-        libdvdnav
-        libdvdread
         libmodplug
         libpng
         libsoxr
@@ -24,10 +21,8 @@ ExternalProject_Add(ffmpeg
         libvpl
         shaderc
         libplacebo
-        libzvbi
         libaribcaption
         dav1d
-        rubberband
         libva
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -44,12 +39,9 @@ ExternalProject_Add(ffmpeg
         --enable-runtime-cpudetect
         --enable-version3
         --enable-postproc
-        --enable-avisynth
         --enable-gmp
         --enable-libass
         --enable-libbluray
-        --enable-libdvdnav
-        --enable-libdvdread
         --enable-libfreetype
         --enable-libfribidi
         --enable-libfontconfig
@@ -59,19 +51,15 @@ ExternalProject_Add(ffmpeg
         --enable-libsoxr
         --enable-libspeex
         --enable-libbs2b
-        --enable-librubberband
         --enable-libdav1d
         --enable-libzimg
         --disable-mbedtls
         --enable-schannel
         --enable-libxml2
         --enable-libmysofa
-        --disable-libssh
-        --disable-libsrt
         --enable-libvpl
         --enable-libplacebo
         --enable-libshaderc
-        --enable-libzvbi
         --enable-libaribcaption
         ${ffmpeg_cuda}
         --enable-amf
