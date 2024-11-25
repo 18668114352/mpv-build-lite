@@ -6,13 +6,10 @@ ExternalProject_Add(mpv
         lcms2
         libarchive
         libass
-        libdvdnav
-        libdvdread
         libiconv
         libjpeg
         libpng
         luajit
-        rubberband
         uchardet
         mujs
         vulkan
@@ -29,20 +26,21 @@ ExternalProject_Add(mpv
         --cross-file=${MESON_CROSS}
         --default-library=shared
         --prefer-static
+        -Dgpl=false 
         -Ddebug=true
         -Db_ndebug=true
         -Doptimization=3
         -Db_lto=true
         ${mpv_lto_mode}
         -Dlibmpv=true
-        -Dpdf-build=enabled
+        -Dpdf-build=disabled
         -Dlua=enabled
         -Djavascript=enabled
         -Dlibarchive=enabled
         -Dlibbluray=enabled
-        -Ddvdnav=enabled
+        -Ddvdnav=disabled
         -Duchardet=enabled
-        -Drubberband=enabled
+        -Drubberband=disabled
         -Dlcms2=enabled
         -Dopenal=disabled
         -Dspirv-cross=enabled
