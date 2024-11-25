@@ -43,6 +43,7 @@ ExternalProject_Add(ffmpeg
         --pkg-config-flags=--static
         --enable-cross-compile
         --enable-runtime-cpudetect
+        --enable-gpl
         --enable-version3
         --enable-postproc
         --enable-avisynth
