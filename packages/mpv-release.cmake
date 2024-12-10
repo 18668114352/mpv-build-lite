@@ -34,7 +34,9 @@ ExternalProject_Add(mpv-release
         shaderc
         libplacebo
         spirv-cross
-    URL ${LINK}
+    #URL ${LINK}
+    GIT_REPOSITORY https://github.com/mpv-player/mpv.git
+    GIT_TAG release/0.36
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}
