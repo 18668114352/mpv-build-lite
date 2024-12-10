@@ -1,8 +1,9 @@
 # Make it fetch latest tarball release since I'm too lazy to manually change it
 set(PREFIX_DIR ${CMAKE_CURRENT_BINARY_DIR}/mpv-release-prefix)
 file(WRITE ${PREFIX_DIR}/get_latest_tag.sh
+# tag=$(curl -sI https://github.com/mpv-player/mpv/releases/latest | grep 'location: https://github.com/mpv-player/mpv/releases' | sed 's#.*/##g' | tr -d '\r')
 "#!/bin/bash
-tag=$(curl -sI https://github.com/mpv-player/mpv/releases/latest | grep 'location: https://github.com/mpv-player/mpv/releases' | sed 's#.*/##g' | tr -d '\r')
+tag=v0.36.0
 printf 'https://github.com/mpv-player/mpv/archive/%s.tar.gz' $tag")
 
 # Workaround since cmake dont allow you to change file permission easily
@@ -34,9 +35,7 @@ ExternalProject_Add(mpv-release
         shaderc
         libplacebo
         spirv-cross
-    #URL ${LINK}
-    GIT_REPOSITORY https://github.com/mpv-player/mpv.git
-    GIT_TAG release/0.36
+    URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
         --prefix=${MINGW_INSTALL_PREFIX}
